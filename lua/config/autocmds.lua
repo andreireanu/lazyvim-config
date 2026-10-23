@@ -6,9 +6,17 @@
 --
 -- Or remove existing autocmds by their group name (which is prefixed with `lazyvim_` for the defaults)
 -- ~/.config/nvim/lua/config/autocmds.lua- e.g. vim.api.nvim_del_augroup_by_name("lazyvim_wrap_spell")
+
 vim.api.nvim_create_autocmd("FileType", {
   pattern = "markdown",
   callback = function()
     vim.opt_local.conceallevel = 0
+  end,
+})
+
+-- Remove strikethrough from deprecated-symbol highlights
+vim.api.nvim_create_autocmd("ColorScheme", {
+  callback = function()
+    vim.api.nvim_set_hl(0, "@lsp.mod.deprecated", { strikethrough = false })
   end,
 })
