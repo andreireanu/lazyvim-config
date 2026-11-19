@@ -25,6 +25,7 @@ return {
     build = "cd app && npm install",
     init = function()
       vim.g.mkdp_filetypes = { "markdown" }
+      vim.g.mkdp_auto_close = 0 -- keep the preview open when switching buffers
     end,
     keys = {
       { "<leader>cp", "<cmd>MarkdownPreviewToggle<cr>", ft = "markdown", desc = "Markdown Preview" },
